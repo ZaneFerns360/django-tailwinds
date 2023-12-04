@@ -128,3 +128,5 @@ COMPRESS_ROOT = BASE_DIR / "static"
 COMPRESS_ENABLED = True
 
 STATICFILES_FINDERS = ("compressor.finders.CompressorFinder",)
+
+LOGIN_REDIRECT_URL = "index"
