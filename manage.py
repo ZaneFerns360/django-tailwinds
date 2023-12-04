@@ -2,11 +2,12 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import subprocess
 
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -15,8 +16,20 @@ def main():
             "available on your PYTHONPATH environment variable? Did you "
             "forget to activate a virtual environment?"
         ) from exc
+    if sys.argv[1] == "runserver":
+        subprocess.Popen(
+            [
+                "pnpm",
+                "tailwindcss",
+                "-i",
+                "./static/src/input.css",
+                "-o",
+                "./static/src/output.css",
+                "--watch",
+            ]
+        )
     execute_from_command_line(sys.argv)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
