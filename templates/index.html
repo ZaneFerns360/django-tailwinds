@@ -23,17 +23,12 @@
       <div
         class="container flex flex-wrap items-center justify-between mx-auto"
       >
-        <a href="{{ .Site.Params.homepage }}/" class="flex items-center">
-          <img
-            src="/docs/images/logo.svg"
-            class="h-6 mr-3 sm:h-9"
-            alt="Flowbite Logo"
-          />
-          <span
-            class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
-            >Flowbite Django</span
-          >
-        </a>
+        <!-- Add this -->
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+        {% else %}
+        <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+        {% endif %}
         <button
           data-collapse-toggle="mobile-menu"
           type="button"
