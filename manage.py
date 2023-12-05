@@ -30,6 +30,8 @@ def main():
         )
         # Run collectstatic command with 'yes' as an argument
         subprocess.run(["python", "manage.py", "collectstatic", "--noinput"])
+        subprocess.run(["echo", "-e", "\033[34mServer has successfully started\033[0m"])
+
     execute_from_command_line(sys.argv)
 
 
