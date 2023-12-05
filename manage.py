@@ -28,6 +28,8 @@ def main():
                 "--watch",
             ]
         )
+        # Run collectstatic command with 'yes' as an argument
+        subprocess.run(["python", "manage.py", "collectstatic", "--noinput"])
     execute_from_command_line(sys.argv)
 
 
